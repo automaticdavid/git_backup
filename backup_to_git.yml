@@ -1,0 +1,6 @@
+- name: "Backup Configurations"
+  hosts: all
+  gather_facts: False
+  roles:
+  - role: backup_manager
+    function: backup
