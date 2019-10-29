@@ -6,8 +6,12 @@
   
   - name: Find latest backup
     find:
-      paths: "/backups"
+      paths: "/backup"
+      file_type: directory
     register: found_files
+
+  - debug: 
+      var:   
 
   - name: Get latest file
     set_fact:
