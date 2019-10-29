@@ -20,7 +20,7 @@
 
   - name: Copy files to git folder
     copy: 
-      src: "{{ latest_dir }}"
+      src: "{{ latest_dir.path }}"
       dest: /git_backup
 
 
