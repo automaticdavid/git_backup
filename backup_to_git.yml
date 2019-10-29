@@ -13,12 +13,14 @@
 
   - name: Get latest file
     set_fact:
-      latest_dir: "{{ found_files.dirs | sort(attribute='mtime') | last }}"
+      latest_dir: "{{ found_dirs.dirs | sort(attribute='mtime') | last }}"
 
   - name: Copy files to git folder
     copy: 
       src: "{{ latest_dir }}"
       dest: /git_backup
+
+
 
 
 
