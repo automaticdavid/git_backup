@@ -1,6 +1,24 @@
-- name: "Backup Configurations"
+- name: "Backup Configurations to GIT"
   hosts: all
   gather_facts: False
-  roles:
-  - role: backup_manager
-    function: backup
+  connection: local
+  
+  tasks: 
+  
+  - name: Find latest backup
+    find:
+      paths: "/backups"
+      file_type: directory
+    register: found_dirs
+
+  - name: Get latest file
+    set_fact:
+      latest_dir: "{{ found_files.dirs | sort(attribute='mtime') | last }}"
+
+  - name: Copy files to git folder
+    copy: 
+      src: "{{ latest_dir }}"
+      dest: /git_backup
+
+
+
