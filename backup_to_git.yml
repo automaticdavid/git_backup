@@ -1,5 +1,5 @@
 - name: "Backup Configurations to GIT"
-  hosts: all
+  hosts: ansible
   gather_facts: False
   
   tasks: 
@@ -8,18 +8,14 @@
     find:
       paths: "/backups"
     register: found_files
-    delegate_to: localhost
-    run_once: true
 
   - name: Get latest file
     set_fact:
       latest_dir: "{{ found_files.dirs | sort(attribute='mtime') | last }}"
-    delegate_to: localhost
-    run_once: true
 
   - name: Copy files to git folder
     copy: 
       src: "{{ latest_dir }}"
       dest: /git_backup
-    delegate_to: localhost
-    run_once: true
+
+
