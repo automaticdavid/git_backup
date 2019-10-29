@@ -11,7 +11,7 @@
     register: found_files
 
   - debug: 
-      var:   
+      var:   "{{ found_files }}"
 
   - name: Get latest file
     set_fact:
