@@ -24,6 +24,8 @@ def main():
     remote = module.params['remote']
     branch = module.params['branch']
 
+    print(repo, remote, branch)
+    
     result = {'changed': False}
 
     if not os.path.exists(repo):
