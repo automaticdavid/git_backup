@@ -14,9 +14,6 @@
       file_type: directory
     register: found_files
 
-  - debug: 
-      var: found_files
-
   - name: Get latest backup dir path
     set_fact:
       latest_dir: "{{ found_files.files | sort(attribute='mtime') | last }}"
