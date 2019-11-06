@@ -14,6 +14,9 @@
     version: "{{ backup_manager_git_branch }}"
   register: r_git_store
 
+- debug: 
+    var: r_git_store
+
 - name: "git_store: Set git_store"
   set_fact:
     git_store: "{{ r_git_store.git_dir_now }}"
