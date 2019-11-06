@@ -28,7 +28,7 @@
   loop:
     - {key: user.name, value: "{{ backup_manager_git_committer_name }}"}
     - {key: user.email, value: "{{ backup_manager_git_committer_email }}"}
-    - {key: ssh.identity, value: "{{ backup_manager_git_key_file }}"}
+    # - {key: ssh.identity, value: "{{ backup_manager_git_key_file }}"}
     - {key: branch.autosetupmerge, value: "always"}
     - {key: push.default, value: "current"}
 
