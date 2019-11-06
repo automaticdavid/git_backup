@@ -26,7 +26,7 @@
   git_config:
     name: "{{ item.key }}"
     repo: "{{ git_store }}"
-    scope: "local"
+    scope: "global"
     value: "{{ item.value }}"
   loop:
     - {key: user.name, value: "{{ backup_manager_git_committer_name }}"}
