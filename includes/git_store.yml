@@ -28,15 +28,15 @@
   loop:
     - {key: user.name, value: "{{ backup_manager_git_committer_name }}"}
     - {key: user.email, value: "{{ backup_manager_git_committer_email }}"}
-    # - {key: ssh.identity, value: "{{ backup_manager_git_key_file }}"}
+    - {key: ssh.identity, value: "{{ backup_manager_git_key_file }}"}
     - {key: branch.autosetupmerge, value: "always"}
     - {key: push.default, value: "current"}
 
 - name: "git_store: Ensure branch exists"
   run_once: true
-  git_checkout:
+  git:
     repo: "{{ git_store }}"
-    branch: "{{ backup_manager_git_branch }}"
+    version: "{{ backup_manager_git_branch }}"
 
 - name: "git_store: Ensure backup folder structure"
   file:
