@@ -1,7 +1,7 @@
 - name: "Backup Configurations to GIT"
   hosts: ansible
   gather_facts: False
-  become: yes
+  connection: local
   
   tasks: 
   
