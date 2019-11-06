@@ -5,7 +5,7 @@
   
   tasks: 
   
-  - name: Init gitstore
+  - name: Init git_store
     include_tasks: includes/git_store.yml
   
   - name: Find latest backup
@@ -15,7 +15,7 @@
     register: found_files
 
   - debug: 
-      var:   "{{ found_files }}"
+      var: found_files
 
   - name: Get latest file
     set_fact:
@@ -24,6 +24,6 @@
   - name: Copy files to git folder
     copy: 
       src: "{{ latest_dir.path }}"
-      dest: /git_backup
+      dest: "{{ git_store }}"
 
 
