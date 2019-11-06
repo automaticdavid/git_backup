@@ -40,6 +40,7 @@
   git:
     repo: "{{ git_store }}"
     version: "{{ backup_manager_git_branch }}"
+    clone: no
 
 - name: "git_store: Ensure backup folder structure"
   file:
