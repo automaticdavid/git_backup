@@ -24,6 +24,9 @@
   - name: Copy files to git folder
     copy: 
       src: "{{ latest_dir.path }}"
-      dest: "{{ git_store }}"
+      dest: "{{ git_store }}/{{ backup_manager_backup_path }}"
+      
+  - name: Sync git_store
+    include_tasks: includes/git_sync.yml
 
 
