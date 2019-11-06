@@ -23,8 +23,6 @@ def main():
     repo = module.params['repo']
     remote = module.params['remote']
     branch = module.params['branch']
-
-    print(repo, remote, branch)
     
     result = {'changed': False}
 
