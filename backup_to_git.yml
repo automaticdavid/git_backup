@@ -5,6 +5,11 @@
   
   tasks: 
   
+  - name: Init gitstore
+    include_role:
+      name: backup_manager
+      tasks_from: includes/git_store.yml
+  
   - name: Find latest backup
     find:
       paths: "/backup"
