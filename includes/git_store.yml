@@ -12,6 +12,8 @@
     repo: "{{ backup_manager_git_url }}"
     dest: "{{ r_tempfile_dir.path }}"
     version: "{{ backup_manager_git_branch }}"
+    key_file: "{{ backup_manager_git_key_file }}"
+    accept_hostkey: yes
   register: r_git_store
 
 - debug: 
